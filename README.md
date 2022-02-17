@@ -68,3 +68,6 @@ cat input-int-3-file | ./file_input.out
 g++ multi_file.cpp -o multi_file.out
 cat input-float-3-file | ./multi_file.out
 
+#### single_class.cpp single_class_main.cpp
+g++ single_class.cpp single_class_main.cpp -o single_class_main.out
+cat input-int-2-file | ./single_class_main.out
