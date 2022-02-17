@@ -71,3 +71,7 @@ cat input-float-3-file | ./multi_file.out
 #### single_class.cpp single_class_main.cpp
 g++ single_class.cpp single_class_main.cpp -o single_class_main.out
 cat input-int-2-file | ./single_class_main.out
+
+#### compile with makefile
+make single_class_main
+cat input-int-2-file | ./single_class_main
