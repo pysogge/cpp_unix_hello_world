@@ -9,6 +9,6 @@ make
 
 ## Run
 ```
-./main
+./main.out
 ```
 
