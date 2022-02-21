@@ -28,22 +28,40 @@ vector<Neuron> generateIndividualNeurons(int n)
     return (neurons);
 }
 
+vector<Network> generateIndividualNetworks(int n)
+{
+    vector<Network> networks;
+    networks.reserve(n);
+
+    for (int i = 0; i < n; i++)
+    {
+        networks.push_back(Network());
+    }
+
+    return (networks);
+}
+
 int main()
 {
+    // Create 10 neurons (unassociated with any network)
     int dNumNeurons = 10;
     vector<Neuron> neuronsA = generateIndividualNeurons(dNumNeurons);
     cout << "Free Neuron IDs: " << endl;
     printNeuronIDs(neuronsA);
 
-    Network networkA = Network();
-    Network networkB = Network();
-    cout << "networkA ID: " << networkA.getID() << endl;
-    cout << "networkB ID: " << networkB.getID() << endl;
+    // Create 10 networks
+    int dNumNetworks = 10;
+    vector<Network> networksA = generateIndividualNetworks(dNumNetworks);
 
-    networkA.generate(dNumNeurons);
+    // Generate 10 neurons for each network
+    for (int n = 0; n < networksA.size(); n++)
+    {
+        networksA[n].generate(dNumNeurons);
+    }
 
-    vector<Neuron> neuronsB = networkA.getNeurons();
-
-    cout << "NetworkA IDs: " << endl;
-    printNeuronIDs(neuronsB);
+    // Print the IDs of the neurons in each network
+    for (int n = 0; n < networksA.size(); n++){
+        printf("Network [%2d] neurons: ", n);
+        printNeuronIDs(networksA[n].getNeurons());
+    }
 }
